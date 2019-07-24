@@ -132,9 +132,10 @@ if [ "$NEBLIOD" = true ]; then
         cp ./nebliod $DEST_DIR
     else
         cd $DEST_DIR
-        wget https://github.com/NeblioTeam/neblio/releases/download/v2.1.1/2019-06-08---v2.1.1-7c49f0e---nebliod---RPi-raspbian-stretch.tar.gz
-        tar -xvf 2019-06-08---v2.1.1-7c49f0e---nebliod---RPi-raspbian-stretch.tar.gz
-        rm 2019-06-08---v2.1.1-7c49f0e---nebliod---RPi-raspbian-stretch.tar.gz
+        TAR_FILE="2019-07-16---v2.12-7fe6b1f---nebliod---RPi-raspbian-stretch.tar.gz"
+        wget https://neblio-build-staging.ams3.digitaloceanspaces.com/$TAR_FILE
+        tar -xvf $TAR_FILE
+        rm $TAR_FILE
         sudo chmod 775 nebliod
     fi
     if [ ! -f ~/.neblio/neblio.conf ]; then
